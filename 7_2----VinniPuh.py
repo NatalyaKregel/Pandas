@@ -30,7 +30,7 @@ if rhythm(str_1):
 else:
     print('Пам парам')
     '''
-    
+'''    
 stroka = "пара-ра-рам рам-пам-папам па-ра-па-дам"
 lines = stroka.split()
  
@@ -44,3 +44,56 @@ if len(set(lst)) == 1 :
 else: res = "Пам парам"
  
 print(res)
+
+else:
+    print('Количество фраз должно быть больше одной!')
+
+
+'''
+
+
+stroka = "пара-ра-рам рам-пам-папам па-ра-па-дам"
+lines = stroka.split()
+ 
+def count_syllables(phrase):
+    """
+    Функция для подсчета слогов (гласных букв) во фразе.
+
+    Args:
+    phrase: Фраза, в которой нужно посчитать слоги.
+
+    Returns:
+    Количество слогов во фразе.
+    """
+    vowels = "аеёиоуыэюя"
+    count = 0
+    for char in phrase.lower():
+        if char in vowels:
+            count += 1
+    return count
+
+def check_rhythm(poem):
+    """
+    Функция для проверки ритма в стихотворении.
+
+    Args:
+    poem: Стихотворение, в котором нужно проверить ритм.
+
+    Returns:
+    True, если в стихотворении есть ритм, False - если нет.
+    """
+    phrases = poem.split()
+    syllables_count = count_syllables(phrases[0])
+    for phrase in phrases[1:]:
+        if syllables_count != count_syllables(phrase):
+            return False
+    return True
+
+
+if stroka.contains(' '):
+    if check_rhythm(stroka):
+        print("Парам пам-пам")
+    else:
+        print("Пам парам")
+else:
+    print('Количество фраз должно быть больше одной!')

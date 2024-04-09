@@ -39,7 +39,7 @@ print(*s_set)
 var1 = '5 4' 
 var2 = '1 3 5 7 9' 
 var3 = '2 3 4 5' 
-'''
+
 var1 = '5 5'
 var2 = '10 20 30 40 50'
 var3 = '10 20 30 40 50'
@@ -62,3 +62,29 @@ kool = list(lok)
 kool.sort()
 for i in kool:
     print(i, end=' ')
+____________________________________
+#var1 = map(int, input().split())
+#var2 = set(map(int, input().split()))
+#var3 = set(map(int, input().split()))
+
+var1 = '5 5'
+var2 = '10 20 30 40 50'
+var3 = '10 20 30 40 50'
+
+var4 = map(int, var1)
+var5 = set(var2)
+var6 = set(var3)
+print(*sorted(var5 & var6))
+'''
+var1 = '5 5'
+var2 = '10 20 30 40 50'
+var3 = '10 20 30 40 50'
+
+s_var2 = var2.split()
+s_var3 = var3.split()
+s_var4 = []
+for num2 in s_var2:
+    for num3 in s_var3:
+        if num2 == num3 and num2 not in s_var4:
+            s_var4.append(num2)
+print(" ".join(s_var4))
